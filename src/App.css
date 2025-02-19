@@ -13,6 +13,72 @@
   }
 }
 
+.container{
+  height: 150px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+  margin-left: 100px;
+}
+
+.container-title{
+ padding: 10px 22px;
+ font-size: 45px;
+ text-align: center;
+}
+
+
+.labels,
+.buttons,
+.inputs{
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  width: 60%;
+  height: 60px;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+
+.start {
+  background-color: green;
+}
+
+.stop {
+  display: none;
+  background-color: orange;
+}
+
+.reset {
+  background-color: orangered;
+}
+
+.btn{
+  width:30%;
+  height: 40px;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+}
+.label{
+   width: 100px;
+   height: 60px;
+}
+.buttons{
+  margin-top: 30px;
+}
+.d-none {
+  display: none !important;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
