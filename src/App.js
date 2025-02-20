@@ -32,26 +32,26 @@ function App() {
 
     setCountDownTime(interval);
 
+
     return () => clearInterval(interval);
   }, [isrunning])
 
   useEffect(() => {
-
+  
     if (minute > 60 && seconds > 60) {
-      setSeconds(prev => parseInt(prev) - 59);
-      setMinute(prev => parseInt(prev) - 60);
-      setHour(prev => parseInt(prev) + 1);
+      setSeconds((prev) => parseInt(prev) - 60);
+      setMinute((prev) => parseInt(prev) - 59);
+      setHour((prev) => parseInt(prev) + 1);
     }
 
-    else if (seconds > 60) {
-      setMinute(prev => parseInt(prev) + 1)
-      setSeconds(prev => parseInt(prev) - 59)
+     else if (seconds > 60) {
+      setMinute((prev) => parseInt(prev) + 1)
+      setSeconds((prev) => parseInt(prev) - 60)
     }
-    else if (minute > 60) {
-      setHour(prev => parseInt(prev) + 1);
-      setMinute(prev => parseInt(prev) - 60)
+     else if (minute > 60) {
+      setHour((prev) => parseInt(prev) + 1);
+      setMinute((prev) => parseInt(prev) - 60)
     }
-
 
     if (hour <= 0 && minute <= 0 && seconds <= 0 && isrunning) {
       setIsRunning(false);
@@ -61,19 +61,7 @@ function App() {
       }
     }
 
-    if (seconds != 0) {
-      setSeconds(`${seconds <= 10 ? "0" : ""}${seconds - 1}`)
-    }
-    else if (minute != 0 && seconds == 0) {
-      setSeconds(59)
-      setMinute(`${minute <= 10 ? "0" : ""}${minute - 1}`)
-    }
-    else if (hour != 0 && minute == 0) {
-      setMinute(60);
-      setHour(`${hour <= 10 ? "0" : ""}${hour - 1}`)
-    }
-
-  }, [isrunning, countDownTime])
+  }, [isrunning])
 
   const startTimer = () => {
     if (hour == 0 && minute == 0 && seconds == 0) return;
@@ -114,6 +102,8 @@ function App() {
       setData(val);
     }
   }
+
+  
   return (
     <div className="container">
       <span className="container-title">
